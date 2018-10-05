@@ -9,10 +9,10 @@ namespace Acme.CommonTests
         [Fact]
         public void LogAction_Success()
         {
-            var loggingService = new LoggingService();
+            //var loggingService = new LoggingService();
             var expected = "Action: Test Action";
 
-            var actual = loggingService.LogAction("Test Action");
+            var actual = LoggingService.LogAction("Test Action");
 
             Assert.Equal(expected, actual);
         }

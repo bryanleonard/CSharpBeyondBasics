@@ -15,8 +15,8 @@
         public string SendMessage(string subject, string message, string recipient)
         {
             var confirmation = $"Message sent: {subject}";
-            var loggingService = new LoggingService();
-            loggingService.LogAction(confirmation);
+
+            LoggingService.LogAction(confirmation);
             return confirmation;
         }
     }

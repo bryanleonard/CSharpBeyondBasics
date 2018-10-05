@@ -7,10 +7,14 @@ namespace Acme.Biz
     /// </summary>
     public class Vendor
     {
+
+        #region Properties
         public int VendorId { get; set; }
         public string CompanyName { get; set; }
         public string Email { get; set; }
+        #endregion
 
+        #region Methods
         /// <summary>
         ///     Sends an email to welcome new vendor
         /// </summary>
@@ -24,5 +28,6 @@ namespace Acme.Biz
 
             return confirmation;
         }
+        #endregion
     }
 }
