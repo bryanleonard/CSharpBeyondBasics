@@ -11,6 +11,13 @@ namespace Acme.BizTests
         [Fact]
         public void SayHelloTest()
         {
+            // Had to use set properties method for Company name :|
+            var currProd = new Product();
+            currProd.ProductId = 1;
+            currProd.ProductName = "Saw";
+            currProd.Description = "15-inch steel blade hand saw";
+            currProd.ProductVendor.CompanyName = "Hi Corp!";
+
             //Arrange
             var currentProduct = new Product
             {
@@ -20,7 +27,8 @@ namespace Acme.BizTests
             };
 
             //Act
-            var actual = currentProduct.SayHello();
+            //var actual = currentProduct.SayHello();
+            var actual = currProd.SayHello();
             var expected = "Hello (1) Saw: 15-inch steel blade hand saw";
 
             //Asset
