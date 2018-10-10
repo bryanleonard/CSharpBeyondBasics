@@ -29,9 +29,9 @@ namespace Acme.BizTests
             //Act
             //var actual = currentProduct.SayHello();
             var actual = currProd.SayHello();
-            var expected = "Hello (1) Saw: 15-inch steel blade hand saw";
+            var expected = "Hello (1) Saw: 15-inch steel blade hand saw, Available on: ";
 
-            //Asset
+            //Assert
             Assert.Equal(expected, actual);
         }
 
@@ -43,9 +43,65 @@ namespace Acme.BizTests
 
             //Act
             var actual = currentProduct.SayHello();
-            var expected = "Hello (1) Saw: 15-inch steel blade hand saw";
+            var expected = "Hello (1) Saw: 15-inch steel blade hand saw, Available on: ";
 
-            //Asset
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Product_Null()
+        {
+            //Arrange
+            Product currentProduct = null;
+            var companyName = currentProduct?.ProductVendor?.CompanyName;
+            string expected = null;
+
+            //Act
+            var actual = companyName;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void ConvertMetersToInches()
+        {
+            //Arrange
+            var expected = 78.74;
+
+            //Act
+            var actual = 2 * Product.InchesPerMeter;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void MinimumPriceTest_Default()
+        {
+            //Arrange
+            var currentProduct = new Product();
+            var expected = .96m;
+
+            //Act
+            var actual = currentProduct.MiniumPrice;
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void MinimumPriceTest_Bulk()
+        {
+            //Arrange
+            var currentProduct = new Product(1, "Bulk", "");
+            var expected = 9.96m;
+
+            //Act
+            var actual = currentProduct.MiniumPrice;
+
+            //Assert
             Assert.Equal(expected, actual);
         }
     }
