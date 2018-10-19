@@ -6,11 +6,13 @@ namespace Acme.Common
 {
     public class OperationResult
     {
+        // Default constructor
         public OperationResult()
         {
 
         }
 
+        //Parameterized constructor
         public OperationResult(bool success, string message) : this()
         {
             this.Success = success;
